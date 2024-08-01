@@ -1,1 +1,94 @@
+#Q1
+count_solved=0
+for n in range(1,4):
+    Petya=int(input(f"enter p for n{n}: "))
+    Vasya=int(input(f"enter v for n{n}: "))
+    Tonya=int(input(f"enter t for n{n}: "))
+    if (Petya+Vasya+Tonya)>=2:
+        print("problem solved")
+        count_solved+=1
+    else:
+        print("Not solved")
+print(f"total number of problem solved is: {count_solved}")
+    
+#Q2
+S=["R","G","B"]
+T=["R","R","R"]
+current_position=S[0]
+number_position=1
+for char in T:
+    if T[0]==S[0]:
+        current_position=S[1]
+        number_position+=1
+        break
+    elif T[0]==S[1]:
+        current_position=S[1]
+        number_position+=1
+        break
+    elif T[0]==S[2]:
+        current_position=S[1]
+        number_position+=1
+        break
+for char in T:
+    if T[1]==S[1]:
+        current_position=S[2]
+        number_position+=1
+        break
+    elif T[1]==S[2]:
+        current_position=S[2]
+        number_position+=1
+        break    
+for char in T:
+    if T[2]==S[2]:
+        current_position=S[2]
+        number_position+=1
+        break
+print(current_position)
+print(number_position)
 
+#Q3
+s1=int(input("enter s1: "))
+s2=int(input("enter s2: "))
+s3=int(input("enter s3: "))
+s4=int(input("enter s4: "))
+list1=[s1,s2,s3,s4]
+result=[]
+for i in list1:
+    if i not in result:
+        result.append(i)
+print(result)
+print(f"Number of shoes Valera can buy is: {len(list1)-len(result)}")
+
+#Q4
+coin=int(input("enter number of coins: "))
+list1=[]
+my_sum=0
+count=0
+for i in range(1,coin+1):
+    coin_value=int(input(f"enter number of coin {i}: "))
+    list1.append(coin_value)
+list1.reverse()
+print(list1)
+print(sum(list1))
+total_sum = sum(list1)
+my_bro_sum = total_sum
+for x in list1:
+    my_sum += x
+    count+=1
+    my_bro_sum -= x
+    if my_sum>my_bro_sum: 
+        break
+print(my_sum)
+print(my_bro_sum)
+print(f"Number of element in my_sum is: {count}")
+
+#Q5
+n=int(input("enter number: "))
+count=0
+def sum_digits(num):
+    return sum([int(digit) for digit in str(num)])
+while n>9:
+    n=sum_digits(n)
+    count+=1
+print(n)
+print(f"Number of times we sum is: {count}")
